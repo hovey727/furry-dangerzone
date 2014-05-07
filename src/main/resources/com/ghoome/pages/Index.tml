@@ -1,0 +1,22 @@
+<html t:type="layout" title="${message:page.index.title}"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+<br/>
+<br/>
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<t:loop source="dbNames" value="dbName" index="var:index">
+			<tr>
+				<td>${var:index}</td>
+				<td>${dbName}</td>
+			</tr>
+		</t:loop>
+	</tbody>
+</table>
+</html>
