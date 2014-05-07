@@ -12,7 +12,7 @@ import org.apache.tapestry5.SymbolConstants;
  */
 @Import(stylesheet = { 
 	"context:static/css/bootstrap.css",
-	//"context:static/css/bootstrap-responsive.css",
+	"context:static/css/bootstrap-responsive.css",
 	"context:static/css/docs.css"
 })
 public class Layout {
