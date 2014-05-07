@@ -1,22 +1,43 @@
 <html t:type="layout" title="${message:page.index.title}"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	xmlns:p="tapestry:parameter">
-<br/>
-<br/>
+	<br/>
+<t:zone t:id="gzone">
+	<t:form t:id="form" t:zone="^">
+		Turn:<t:textfield t:value="input" />&nbsp;&nbsp;
+		<t:submit t:value="Heap Up" class="btn btn-success btn-xs"/>
+	</t:form>
 <table class="table">
 	<thead>
 		<tr>
-			<th>#</th>
-			<th>Name</th>
+			<th>no</th>
+			<th>lea</th>
+			<th>vs</th>
+			<th>yapan</th>
+			<th>odds</th>
 		</tr>
 	</thead>
 	<tbody>
-		<t:loop source="dbNames" value="dbName" index="var:index">
+		<t:loop source="records" value="m" index="var:index">
 			<tr>
-				<td>${var:index}</td>
-				<td>${dbName}</td>
+				<td>${m.no}</td>
+				<td>${m.leagueName}</td>
+				<td>[${m.homeTeamNo}]${m.homeTeamName}vs${m.guestTeamName}[${m.guestTeamNo}]</td>
+				<td>${m.yapan}</td>
+				<td>
+					${scaleDouble(m.oddsDiffWin,2)}/${scaleDouble(m.oddsDiffDraw,2)}/${scaleDouble(m.oddsDiffLose,2)} | ${scaleDouble(m.panDiffUp,2)}/${scaleDouble(m.panDiffDown,2)}
+					<br/>
+					${scaleDouble(m.oddsDiffWin1,2)}/${scaleDouble(m.oddsDiffDraw1,2)}/${scaleDouble(m.oddsDiffLose1,2)} | ${scaleDouble(m.panDiffUp1,2)}/${scaleDouble(m.panDiffDown1,2)}
+					<hr style="margin: 0px;"/>
+					${scaleDouble(m.winOdds,2)}/${scaleDouble(m.tieOdds,2)}/${scaleDouble(m.loseOdds,2)} | ${scaleDouble(m.panInitHome,2)}/${scaleDouble(m.panInitAway,2)} | ${scaleDouble(m.panCurHome,2)}/${scaleDouble(m.panCurAway,2)} 
+					<hr style="margin: 0px;"/>
+					${scaleDouble(m.bfwinPersonV,2)}/${scaleDouble(m.bfdrawPersonV,2)}/${scaleDouble(m.bflosePersonV,2)}
+					<br/>
+					${scaleDouble(m.bfwinPersonW1,2)}/${scaleDouble(m.bfdrawPersonW1,2)}/${scaleDouble(m.bflosePersonW1,2)} 
+				</td>
 			</tr>
 		</t:loop>
 	</tbody>
 </table>
+</t:zone>
 </html>
